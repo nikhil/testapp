@@ -1,4 +1,5 @@
 import os
+import cgi
 from datetime import datetime
 from flask import Flask, request, flash, url_for, redirect, \
      render_template, abort, send_from_directory
@@ -9,6 +10,10 @@ app.config.from_pyfile('flaskapp.cfg')
 @app.route('/')
 def index():
     butts = "Butts are awesome"    
+    render_template('index.html',butts=butts)
+    form = cgi.FieldStorage()
+    seachterm =  form.getvalue('searchbox')
+    butts = searchterm
     return render_template('index.html',butts=butts)
 
 @app.route('/<path:resource>')
