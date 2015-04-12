@@ -1,4 +1,5 @@
 import os
+import requests
 from datetime import datetime
 from flask import Flask, request, flash, url_for, redirect, \
      render_template, abort, send_from_directory
@@ -15,8 +16,9 @@ def index():
 def my_form_post():
 
     text = request.form['text']
-    processed_text = text.upper()
-    return processed_text
+    params3 = {'apikey': 'd8894db2dd60aed653e7bd91ea854ce91f46ec85', 'text': text, 'outputMode': 'json'}
+    analyzedString = requests.get('https://access.alchemyapi.com/calls/text/TextGetTextSentiment',params=params3).json()
+    return analyzedString
 
 @app.route('/<path:resource>')
 def serveStaticResource(resource):
