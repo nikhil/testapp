@@ -25,7 +25,7 @@ if __name__ == '__main__':
 
 
 form = cgi.FieldStorage()
-if len(form) != 0
+if len(form) != 0:
     seachterm =  form.getvalue('searchbox')
     butts = searchterm
     render_template('index.html',butts=butts)
