@@ -1,5 +1,4 @@
 import os
-import cgi
 from datetime import datetime
 from flask import Flask, request, flash, url_for, redirect, \
      render_template, abort, send_from_directory
@@ -9,8 +8,15 @@ app.config.from_pyfile('flaskapp.cfg')
 
 @app.route('/')
 def index():
-    butts = "Butts are awesome"
-    return render_template('index.html',butts=butts)
+    return render_template("my-form.html")
+    #butts = "Butts are awesome"
+    #return render_template('index.html',butts=butts)
+@app.route('/', methods=['POST'])
+def my_form_post():
+
+    text = request.form['text']
+    processed_text = text.upper()
+    return processed_text
 
 @app.route('/<path:resource>')
 def serveStaticResource(resource):
@@ -24,9 +30,3 @@ if __name__ == '__main__':
     app.run(app.config['IP'], app.config['PORT'])
 
 
-form = cgi.FieldStorage()
-if len(form) != 0:
-    seachterm =  form.getvalue('searchbox')
-    butts = searchterm
-    render_template('index.html',butts=butts)
-    
