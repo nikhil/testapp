@@ -11,10 +11,11 @@ app.config.from_pyfile('flaskapp.cfg')
 def index():
     butts = "Butts are awesome"    
     return render_template('index.html',butts=butts)
-    #form = cgi.FieldStorage()
-   #seachterm =  form.getvalue('searchbox')
-   # butts = searchterm
-   # return render_template('index.html',butts=butts)
+
+form = cgi.FieldStorage()
+seachterm =  form.getvalue('searchbox')
+butts = searchterm
+render_template('index.html',butts=butts)
 
 @app.route('/<path:resource>')
 def serveStaticResource(resource):
@@ -26,3 +27,11 @@ def test():
 
 if __name__ == '__main__':
     app.run(app.config['IP'], app.config['PORT'])
+
+
+form = cgi.FieldStorage()
+if form is not None
+    seachterm =  form.getvalue('searchbox')
+    butts = searchterm
+    render_template('index.html',butts=butts)
+    
