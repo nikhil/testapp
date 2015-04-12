@@ -10,7 +10,7 @@ app.config.from_pyfile('flaskapp.cfg')
 @app.route('/')
 def index():
     butts = "Butts are awesome"
-     return render_template('index.html',butts=butts)
+    return render_template('index.html',butts=butts)
 
 @app.route('/<path:resource>')
 def serveStaticResource(resource):
