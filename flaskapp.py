@@ -9,10 +9,8 @@ app.config.from_pyfile('flaskapp.cfg')
 
 @app.route('/')
 def index():
-    #butts = "Butts are awesome"
-    form = cgi.FieldStorage()
-    butts = len(form)
-    return render_template('index.html',butts=butts)
+    butts = "Butts are awesome"
+     return render_template('index.html',butts=butts)
 
 @app.route('/<path:resource>')
 def serveStaticResource(resource):
@@ -27,8 +25,8 @@ if __name__ == '__main__':
 
 
 form = cgi.FieldStorage()
-#if form is not None
-#    seachterm =  form.getvalue('searchbox')
-#    butts = searchterm
-#    render_template('index.html',butts=butts)
+if len(form) != 0
+    seachterm =  form.getvalue('searchbox')
+    butts = searchterm
+    render_template('index.html',butts=butts)
     
