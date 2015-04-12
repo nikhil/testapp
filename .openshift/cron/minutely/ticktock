@@ -1,1 +1,8 @@
-date >> logs/ticktock.log
+#!/bin/bash
+ echo "************ Cronny Started ***************"
+ date >> ${OPENSHIFT_DATA_DIR}/ticktock.log
+ date >> ${OPENSHIFT_DATA_DIR}/ticktock2.log
+ source ${OPENSHIFT_HOMEDIR}/python/bin/activate_virtenv
+ python ${OPENSHIFT_REPO_DIR}/hi.py
+ echo "************ Cronny Executed ***************"
+ date >> ${OPENSHIFT_DATA_DIR}/ticktock3.log
