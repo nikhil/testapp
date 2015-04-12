@@ -24,9 +24,9 @@ if __name__ == '__main__':
     app.run(app.config['IP'], app.config['PORT'])
 
 
-form = cgi.FieldStorage()
-if form is not None
-    seachterm =  form.getvalue('searchbox')
-    butts = searchterm
-    render_template('index.html',butts=butts)
+#form = cgi.FieldStorage()
+#if form is not None
+#    seachterm =  form.getvalue('searchbox')
+#    butts = searchterm
+#    render_template('index.html',butts=butts)
     
