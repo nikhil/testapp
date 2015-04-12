@@ -12,11 +12,6 @@ def index():
     butts = "Butts are awesome"    
     return render_template('index.html',butts=butts)
 
-form = cgi.FieldStorage()
-seachterm =  form.getvalue('searchbox')
-butts = searchterm
-render_template('index.html',butts=butts)
-
 @app.route('/<path:resource>')
 def serveStaticResource(resource):
     return send_from_directory('static/', resource)
