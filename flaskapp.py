@@ -9,7 +9,9 @@ app.config.from_pyfile('flaskapp.cfg')
 
 @app.route('/')
 def index():
-    butts = "Butts are awesome"    
+    #butts = "Butts are awesome"
+    form = cgi.FieldStorage()
+    butts = len(form)
     return render_template('index.html',butts=butts)
 
 @app.route('/<path:resource>')
